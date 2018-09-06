@@ -1,0 +1,9 @@
+Objeto (Esquema de nomeação FDI):Intra indefinido
+Data em que foi tomada a imagem: 27/08/2018 14:17:47
+Radiografia: Corrente eléctrica [mA]:=0  Voltagem [kV]:=0  Tempo exposição [ms]:=0
+tubo de raios X:<??>  Fabricante:  Tipo:
+Criador de imagens:VistaNet/VistaScan Mini View 2142-000-80 J358615231/
+Paciente: HEO, NOEMI ROSELENI BARBOSA COSTA, 17/10/1971, NOEMI ROSELENI BARBOSA COSTA
+Clínica: UFRGS, 1800419414
+DPI= 1011|1011 
+

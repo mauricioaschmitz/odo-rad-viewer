@@ -1,0 +1,9 @@
+Objeto (Esquema de nomeação FDI):Intra indefinido
+Data em que foi tomada a imagem: 28/08/2018 10:24:33
+Radiografia: Corrente eléctrica [mA]:=0  Voltagem [kV]:=0  Tempo exposição [ms]:=0
+tubo de raios X:<??>  Fabricante:  Tipo:
+Criador de imagens:VistaNet/VistaScan Mini View 2142-000-80 J358615231/
+Paciente: HEO, ADÃO FERREIRA DOS SANTOS, 10/06/1965, ADÃO FERREIRA DOS SANTOS
+Clínica: UFRGS, 1800419414
+DPI= 1011|1011 
+

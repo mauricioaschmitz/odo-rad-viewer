@@ -1,0 +1,471 @@
+body {
+	padding-top: 5rem;
+}
+.starter-template {
+	padding: 3rem 1.5rem;
+	text-align: center;
+}
+
+.dente{
+	float:left;
+	width:55px;
+	height:55px;
+	padding-left:18px;
+	-webkit-filter: blur(1px);
+	-moz-filter: blur(1px);
+	-o-filter: blur(1px);
+	-ms-filter: blur(1px);
+	filter: blur(1px);
+	pointer-events:none;
+}
+
+.pdente{
+	float:left;
+	width:55px;
+	height:55px;
+	padding-left:18px;
+}
+
+.oclusal {
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	margin-top:-20px;
+}
+
+.oclusal2, .oclusal3 {
+	width: 28px;
+	height:28px;
+	border:1px solid black;
+	margin-top:-9px;
+	margin-left:-4px;
+	border-radius: 10px 10px 10px 10px;
+}
+.geral:hover{
+	cursor:pointer;
+}
+
+.distdir{
+	margin-left:-12px;
+	margin-top:-5px;
+	width: 13px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 80px 0px 0px 80px;
+}
+.mesidir{
+	margin-left:19px;
+	margin-top:-20px;
+	width: 13px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 0px 80px 80px 0px;
+}
+.distesq{
+	margin-left:19px;
+	margin-top:-5px;
+	width: 13px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 0px 80px 80px 0px;
+}
+.mesiesq{
+	margin-left:-12px;
+	margin-top:-20px;
+	width: 13px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 80px 0px 0px 80px;
+}
+.palat{
+	position:absolute;
+	margin-top:-1px;
+	width: 20px;
+	height:13px;
+	border:1px solid black;
+	border-radius: 0px 0px 80px 80px;
+}
+.vestsup{
+	position:absolute;
+	margin-top:-32px;
+	width: 20px;
+	height:13px;
+	border:1px solid black;
+	border-radius: 80px 80px 0px 0px;
+}
+
+.vestinf{
+	position:absolute;
+	margin-top:-1px;
+	width: 20px;
+	height:13px;
+	border:1px solid black;
+	border-radius: 0px 0px 80px 80px;
+}
+.ling{
+	position:absolute;
+	margin-top:-32px;
+	width: 20px;
+	height:13px;
+	border:1px solid black;
+	border-radius: 80px 80px 0px 0px;
+}
+
+.nomedente{
+	position: absolute;
+	z-index:-1;
+	margin-top:-7px;
+	margin-left:1px;
+	overflow:hidden;
+}
+
+.nomedente2{
+	position: absolute;
+	z-index:-1;
+	margin-top:-37px;
+	margin-left:1px;
+	overflow:hidden;
+}
+
+.nomedentem{
+	font-size:11px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-3px;
+	margin-left:33px;
+	overflow:hidden;
+}
+
+.nomedented{
+	font-size:11px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-3px;
+	margin-left:-22px;
+	overflow:hidden;
+}
+
+.nomedentep{
+	font-size:11px;
+	position: absolute;
+	z-index:-1;
+	margin-top:25px;
+	margin-left:7px;
+	overflow:hidden;
+}
+
+.nomedentev{
+	font-size:11px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-32px;
+	margin-left:7px;
+	overflow:hidden;
+}
+
+.nomedentedz{
+	font-size:10px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-3px;
+	margin-left:-9px;
+	overflow:hidden;
+}
+
+.nomedentevz{
+	font-size:10px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-18px;
+	margin-left:7px;
+	overflow:hidden;
+}
+.nomedentepz{
+	font-size:10px;
+	position: absolute;
+	z-index:-1;
+	margin-top:12px;
+	margin-left:7px;
+	overflow:hidden;
+}
+.nomedentemz{
+	font-size:10px;
+	position: absolute;
+	z-index:-1;
+	margin-top:-3px;
+	margin-left:21px;
+	overflow:hidden;
+}
+
+
+.dente11, .dente12, .dente13, .dente14, .dente15, .dente16, .dente17, .dente18, .dente51, .dente52, .dente53, .dente54, .dente55, .dente81, .dente82, .dente83, .dente84, .dente85, .dente41, .dente42, .dente43, .dente44, .dente45, .dente46, .dente47, .dente48{
+	float:right !important;
+}
+
+.pdente11, .pdente12, .pdente13, .pdente14, .pdente15, .pdente16, .pdente17, .pdente18, .pdente51, .pdente52, .pdente53, .pdente54, .pdente55, .pdente81, .pdente82, .pdente83, .pdente84, .pdente85, .pdente41, .pdente42, .pdente43, .pdente44, .pdente45, .pdente46, .pdente47, .pdente48{
+	float:right !important;
+}
+
+.variavel{
+	visibility:hidden;
+}
+
+.marginzero{
+	margin-left:0px !important;
+}
+
+.monorad, .monoradb, .monoradc{
+	position:absolute;
+	margin-top:-7px;
+	margin-left:-3px;
+	width: 26px;
+	height:26px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biradvsup, .biradvsupb, .biradvsupc{
+	position:absolute;
+	margin-top:-15px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biradpsup, .biradpsupb, .biradpsupc{
+	position:absolute;
+	margin-top:10px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.triradpsup, .triradpsupb, .triradpsupc{
+	position:absolute;
+	margin-top:10px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.triradmvsup, .triradmvsupb, .triradmvsupc{
+	position:absolute;
+	margin-top:-15px;
+	margin-left:15px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.triraddvsup, .triraddvsupb, .triraddvsupc{
+	position:absolute;
+	margin-top:-15px;
+	margin-left:-12px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.triradmvsup2, .triradmvsup2b, .triradmvsup2c{
+	position:absolute;
+	margin-top:-15px;
+	margin-left:-12px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.triraddvsup2, .triraddvsup2b, .triraddvsup2c{
+	position:absolute;
+	margin-top:-15px;
+	margin-left:15px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biradminf, .biradminfb, .biradminfc{
+	position:absolute;
+	margin-top:-5px;
+	margin-left:15px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biraddinf, .biraddinfb, .biraddinfc{
+	position:absolute;
+	margin-top:-5px;
+	margin-left:-12px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biradminf2, .biradminf2b, .biradminf2c{
+	position:absolute;
+	margin-top:-5px;
+	margin-left:-12px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+.biraddinf2, .biraddinf2b, .biraddinf2c{
+	position:absolute;
+	margin-top:-5px;
+	margin-left:15px;
+	width: 20px;
+	height:20px;
+	border:1px solid black;
+	border-radius: 8px;
+}
+
+
+@media print {
+	* {
+		background:transparent !important;
+		color:#000 !important;
+		text-shadow:none !important;
+		filter:none !important;
+		-ms-filter:none !important;
+		text-align: left;
+		font-size:32px !important;
+		margin:0;
+		padding:0;
+		text-decoration: none !important;
+	}
+
+	body {
+		margin:0;
+		padding:0;
+	}
+
+	.notprint{
+		display:none;
+	}
+
+	.print{
+		width:100% !important;
+	}
+
+	.wrap { 
+		width: 100%; 
+		margin: 0; 
+		float: none !important; 
+	}
+
+
+	h4{
+		font-size: 36px;
+		font-weight: bold;
+	}
+}
+
+/* Dropdown Button */
+.dropbtn {
+	background-color: transparent;
+	color: white;
+	padding: 12px;
+	font-size: 16px;
+	border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+	position: relative;
+	display: inline-block;
+	float:left;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #f1f1f1;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+	background-color: #a3abb7;
+	color:black;
+}
+
+.alfabeto {
+	margin: 5% 0 0 0;
+	padding: 0;
+	width: 100%;
+	height: 50px;
+}
+
+.alfabeto li {
+	width: auto!important;
+	display: inline;
+	float: left;
+	padding: 0px;
+	margin: 0;
+	width: 3.84%;
+	border-left: #eee thin solid;
+}
+
+.alfabeto li a {
+	width: 40px!important;
+	display: block!important;
+	margin-top: 5px!important;
+	text-align: center!important;
+	font-size: 22px;
+}
+
+.alfabeto li a:hover {
+	background-color: #0275d8;
+	color:white;
+	text-decoration: none;
+}
+
+.img-single {
+	display: inline-block;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+.img-single img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border: 1px solid #ddd; /* Gray border */
+	border-radius: 4px;  /* Rounded border */
+	padding: 5px; /* Some padding */
+}
+
+.img-single img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    cursor:pointer;
+}
