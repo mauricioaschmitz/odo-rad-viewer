@@ -1,4 +1,5 @@
 <?php
+header ('Content-type: text/html; charset=iso-8859-1');
 session_start();
 include_once "config.php";
 ?>
@@ -27,7 +28,7 @@ include_once('style/include/head.php');
 
 <div class="container">
 
-  <div class="starter-template">
+  <div class="starter-template" style="padding-top:0px;">
 
     <div class="row">
       <div class="col-lg-12" style="text-align: left;">
@@ -111,7 +112,33 @@ include_once('style/include/head.php');
            <a href="?letra=z">Z</a>
          </li>
        </ul>
-       <table class="table" style="margin-top:50px;">
+
+       <?php
+       $directories = glob('exames/*' , GLOB_ONLYDIR);
+       sort($directories);
+
+       $nomes = array();
+
+       foreach($directories as $dir){
+        $nomes[0][] = $dir;
+        $dir = explode(" - ",$dir);
+        $nomes[1][] = substr($dir[0], 7);
+      }
+      $busca = $nomes[1];
+      ?>
+
+      <div class="form-group row">
+        <div class="col-md-2">
+          <label for="prontuario" class="col-md-2 col-form-label">Nome</label>
+        </div>
+        <div class="col-md-10">
+          <input class="form-control target1" type="text" value="" name="nome" id="searchBox1">
+          <div id="response">
+
+          </div>
+        </div>
+      </div>
+      <table class="table" style="margin-top:50px;">
         <thead class="thead">
           <tr>
             <th>Paciente</th>
@@ -119,77 +146,112 @@ include_once('style/include/head.php');
         </thead>
         <tbody>
           <?php
-          $directories = glob('exames/*' , GLOB_ONLYDIR);
-          sort($directories);
-          
-          $nomes = array();
-
-          foreach($directories as $dir){
-            $nomes[0][] = $dir;
-            $dir = explode(" - ",$dir);
-            $nomes[1][] = substr($dir[0], 7);
+          if(!isset($_GET['letra'])){
+            $_GET['letra'] = 'a';
           }
 
-          $cont = 0;
-          if(isset($_GET['letra'])){
-            foreach($nomes[1] as $key => $no){
-              if($no[0] == strtoupper($_GET['letra'])){
-                echo "<tr><td><a href='listarx.php?paciente=".$nomes[0][$key]."'>".$no."</a></td></tr>";
-                $cont++;
-              } else{
-                if($cont > 0){
-                  break;
-                }
-              }
-            }
-          }
+          $filtered = array_filter($nomes[1], create_function('$a', 'return $a[0] == "' . strtoupper($_GET['letra']) . '";'));
+          //$pacientes = array_splice($filtered, count($filtered) - 4, 4);
 
-            /*$avaliador = $cu->actionControl("selectAvaliador", $ex);
-            $paciente = $cp->actionControl("selectOne", $ex);
-            if($paciente[0]['prontuario'] == ""){
-              $paciente[0]['prontuario'] = "Não informado";
-            }
-            echo '<tr><td>'.$ex['id'].'</td><td>'.$paciente[0]['prontuario'].'</td><td>'.$ex['data'].'</td><td>'.$ex['motivo'].'</td><td>'.$avaliador[0]['nome'].'</td><td><a href="detalhesexame.php?id_exame='.$ex['id'].'">Ver</a>';
-            if($_SESSION['restricted'] == "admin"){
-              echo ' | <a href="?id_exame='.$ex['id'].'">Editar</a> | <a href="system/services/exame.php?acao=delete&id_exame='.$ex['id'].'">Excluir</a>';
-            }
-            echo '</td></tr>';*/
-
-            ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <!--nav aria-label="...">
-      <ul class="pagination">
-        <li class="page-item <?php /* echo $x1; ?>">
-          <a class="page-link" href="listaexames.php?pagina=<?php echo $pagina-1; ?>" tabindex="-1" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-            <span class="sr-only">Anterior</span>
-          </a>
-        </li>
-        <?php
-        foreach ($paginas as $pag) {
-          if($pag == $pagina){
-            echo '<li class="page-item active"><a class="page-link" href="#">'.$pag.'<span class="sr-only">(current)</span></a></li>';
+          if(isset($_GET['pagina'])){
+            $filtered2 = array_slice($filtered, ((30 * $_GET['pagina']) - 30), 30, true);
           } else{
-            echo '<li class="page-item"><a class="page-link" href="listaexames.php?pagina='.$pag.'">'.$pag.'</a></li>';
+            $filtered2 = array_slice($filtered, 0, 30, true);
           }
-        }
-        ?>
-        <li class="page-item <?php echo $x2; ?>">
-          <a class="page-link" href="listaexames.php?pagina=<?php echo $pagina+1; */?>" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-            <span class="sr-only">Próximo</span>
-          </a>
-        </li>
-      </ul>
-    </nav-->
 
+
+          $cont2 = 0;
+          if(isset($_GET['letra'])){
+            foreach($filtered2 as $key => $no){
+              if($cont2 == 0){
+                echo "<tr>";
+              }
+              echo "<td><a href='listarx.php?paciente=".$nomes[0][$key]."'>".$no."</a></td>";
+              $cont2++;
+              if($cont2 == 3){
+                echo "</tr>";
+                $cont2 = 0;
+              }
+
+            }
+          }
+
+
+          if(!isset($_GET['pagina'])){
+            $pagina = 1;
+          } else{
+            $pagina = $_GET['pagina'];
+          }
+
+          $num_exames = count($filtered);
+          $num_paginas = ceil($num_exames/30);
+
+          $x1 = "";
+          $x2 = "";
+          if($pagina == 1){
+            $x1 = "disabled";
+          }
+          if($pagina == $num_paginas){
+            $x2 = "disabled";
+          }
+
+          if($num_paginas > 5){
+            $paginas = array();
+            if($pagina <= 3){
+              $paginas = array(1,2,3,4,5);
+            } else if(($num_paginas-$pagina) < 3){
+              $y = $num_paginas-4;
+              while($y <= $num_paginas){
+                $paginas[] = $y;
+                $y++;
+              }
+            } else{
+              $paginas = array($pagina-2,$pagina-1,$pagina,$pagina+1,$pagina+2);
+
+            }
+          } else{
+            $paginas = array();
+            $y = 1;
+            while($y <= $num_paginas){
+              $paginas[] = $y;
+              $y++;
+            }
+          }
+
+          ?>
+        </tbody>
+      </table>
+    </div>
   </div>
+  <nav aria-label="...">
+    <ul class="pagination">
+      <li class="page-item <?php echo $x1; ?>">
+        <a class="page-link" href="listaexames.php?pagina=<?php echo ($pagina-1).'&letra='.$_GET['letra']; ?>" tabindex="-1" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">Anterior</span>
+        </a>
+      </li>
+      <?php
+      foreach ($paginas as $pag) {
+        if($pag == $pagina){
+          echo '<li class="page-item active"><a class="page-link" href="#">'.$pag.'<span class="sr-only">(current)</span></a></li>';
+        } else{
+          echo '<li class="page-item"><a class="page-link" href="listaexames.php?pagina='.$pag.'&letra='.$_GET['letra'].'">'.$pag.'</a></li>';
+        }
+      }
+      ?>
+      <li class="page-item <?php echo $x2; ?>">
+        <a class="page-link" href="listaexames.php?pagina=<?php echo ($pagina+1).'&letra='.$_GET['letra'];?>" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+          <span class="sr-only">Próximo</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+</div>
 
 </div><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -200,6 +262,34 @@ include_once('style/include/head.php');
     <script src="style/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="style/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $("#searchBox1").keyup(function(){
+          var query = $("#searchBox1").val();
+          var query = query.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+          if(query.length > 0){
+            $.ajax(
+            {
+              url: 'buscapacientes.php',
+              method:'POST',
+              data: {
+                search: 1,
+                q: query
+              },
+              success: function (data){
+                $("#response").html(data);
+              }
+            });
+          } else{
+            $("#response").html("");
+          }
+        });
+      });
+    </script>
+
+
   </body>
   </html>              
 

@@ -36,7 +36,9 @@ $diretorio = dir($path);
         <?php
         $cont = 0;
         while($arquivo = $diretorio -> read()){
-          if($cont >= 2){
+          $ext = explode(".",$arquivo);
+
+          if($cont >= 2 && $ext[1] == "jpg" || $ext[1] == "JPG"){
             ?>
             <div class="col-lg-3 img-single column column-block">
               <a data-open="galleryModal">

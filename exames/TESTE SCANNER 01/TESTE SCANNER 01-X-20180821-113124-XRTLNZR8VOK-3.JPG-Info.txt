@@ -1,9 +1,0 @@
-Objeto (Esquema de nomeação FDI):Intra indefinido
-Data em que foi tomada a imagem: 21/08/2018 11:31:24
-Radiografia: Corrente eléctrica [mA]:=0  Voltagem [kV]:=0  Tempo exposição [ms]:=0
-tubo de raios X:<??>  Fabricante:  Tipo:
-Criador de imagens:VistaNet/VistaScan Mini View 2142-000-80 J358615231/
-Paciente: HEO, TESTE SCANNER 01, 01/11/1982, TESTE SCANNER 01
-Clínica: UFRGS, 1800419414
-DPI= 1011|1011 
-
