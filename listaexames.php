@@ -1,10 +1,10 @@
 <?php
-header ('Content-type: text/html; charset=iso-8859-1');
+header ('Content-type: text/html; ');
 session_start();
 include_once "config.php";
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -127,7 +127,7 @@ include_once('style/include/head.php');
       $busca = $nomes[1];
       ?>
 
-      <div class="form-group row">
+       <div class="form-group row">
         <div class="col-md-2">
           <label for="prontuario" class="col-md-2 col-form-label">Nome</label>
         </div>
@@ -138,11 +138,11 @@ include_once('style/include/head.php');
           </div>
         </div>
       </div>
-      <table class="table" style="margin-top:50px;">
+      <table class="table" style="margin-top:15px;">
         <thead class="thead">
-          <tr>
+          <!--<tr>
             <th>Paciente</th>
-          </tr>
+          </tr>-->
         </thead>
         <tbody>
           <?php
@@ -264,7 +264,8 @@ include_once('style/include/head.php');
     <script src="style/docs/assets/js/ie10-viewport-bug-workaround.js"></script>
 
     <script>
-      $(document).ready(function(){
+      
+     $(document).ready(function(){
         $("#searchBox1").keyup(function(){
           var query = $("#searchBox1").val();
           var query = query.normalize('NFD').replace(/[\u0300-\u036f]/g, "");

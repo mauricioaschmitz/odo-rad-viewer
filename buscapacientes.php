@@ -1,5 +1,5 @@
 <?php
-header ('Content-type: text/html; charset=iso-8859-1');
+header ('Content-type: text/html;');
 if (isset($_POST['search'])) {
   $response = "<ul><li>Nenhum paciente encontrado!</li></ul>";
 

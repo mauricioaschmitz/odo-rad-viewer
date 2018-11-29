@@ -1,3 +1,3 @@
 <?php
-  header('location:listaultimos.php');
+  header('location:listaexames.php');
 ?>
