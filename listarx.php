@@ -38,10 +38,22 @@ include_once "config.php";
                     $files = scandir($path);
                     rsort($files);
                     foreach ($files as $file) {
-                        if ($file != '.' && $file != '..') {
+                        $ext = explode(".",$file);
+                        if ($file != '.' && $file != '..' && ($ext[1] == "jpg" || $ext[1] == "JPG")) {
                             ?>
-                            <div class="col-lg-2 img-single column column-block">
+                            <div class="col-lg-3 img-single column column-block" style="text-align: center;">
                                 <a data-open = "galleryModal">
+                                    <?php
+                                    //extrair data do nome do arquivo
+                                    $from = "-X-";
+                                    $to = "-";
+                                    $sub = substr($file, strpos($file,$from)+strlen($from),strlen($file));
+                                    $date = substr($sub,0,strpos($sub,$to));
+                                    
+                                    $data = DateTime::createFromFormat('Ymd', $date)->format('d-m-Y');
+                                    echo $data;
+
+                                    ?>
                                     <a href = "<?php echo $path . '/' . $file; ?>" target = "_blank"><img src = "<?php echo $path . '/' . $file; ?>" class = "thumbnail center-block" alt = "Image with object-fit"></a>
                                 </a>
                             </div>
