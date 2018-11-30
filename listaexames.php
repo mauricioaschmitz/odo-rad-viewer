@@ -129,7 +129,7 @@ include_once('style/include/head.php');
 
        <div class="form-group row">
         <div class="col-md-2">
-          <label for="prontuario" class="col-md-2 col-form-label">Nome</label>
+          <label for="prontuario" class="col-form-label">Pesquisar nome</label>
         </div>
         <div class="col-md-10">
           <input class="form-control target1" type="text" value="" name="nome" id="searchBox1">
